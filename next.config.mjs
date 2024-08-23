@@ -6,9 +6,10 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   // Optionally, add any other Next.js config below
   webpack: (config, { isServer }) => {
+    // Use `asset/source` instead of `raw-loader`
     config.module.rules.push({
       test: /\.bib$/,
-      use: "raw-loader",
+      type: 'asset/source',
     });
 
     return config;
@@ -19,14 +20,7 @@ const nextConfig = {
    *
    * @see https://nextjs.org/docs/app/building-your-application/deploying/static-exports
    */
-  output: "export",
-
-  // /**
-  //  * Set base path. This is the slug of your GitHub repository.
-  //  *
-  //  * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
-  //  */
-  // basePath: "/jokerwyt.github.io",
+  output: 'export',
 
   /**
    * Disable server-based image optimization. Next.js does not support
@@ -45,4 +39,3 @@ const withMDX = createMDX({
 
 // Merge MDX config with Next.js config
 export default withMDX(nextConfig);
-
