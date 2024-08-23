@@ -60,10 +60,10 @@ export default function RootLayout({ children }) {
         {/* <!-- End Google Tag Manager --> */}
       </Head>
       <body className={`${font.className} bg-neutral-50 dark:bg-neutral-800`}>
-        {/* <!-- Google Tag Manager (noscript) --> */}
+        {/* <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ3CSVQM"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        {/* <!-- End Google Tag Manager (noscript) --> */}
+        height="0" width="0" style={{ visibility:hidden }}></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) --> */}
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
