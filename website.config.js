@@ -1,41 +1,44 @@
+import TeachingSection from "./components/NewsSection";
+
 export const personalInfo = {
-  name: 'Hiroshi Ishii',
+  name: 'Yongtong Wu | 吴永彤',
   profilePicture: '/profile.jpg', //optional
-  role: 'Professor',
-  university: 'MIT Media Lab',
-  universityWebsite: 'https://www.zju.edu.cn/',
+  role: 'Undergraduate Student',
+  university: 'Peking University',
+  universityWebsite: 'https://english.pku.edu.cn/',
   socialMedia: [
-    { name: 'Email', url: 'https://linkedin.com' },
-    { name: 'Twitter', url: 'https://twitter.com/anxndsgn' },
+    { name: 'Email', url: 'mailto:wuyongtong@stu.pku.edu.cn' },
+    // { name: 'Twitter', url: 'https://twitter.com/anxndsgn' },
     {
       name: 'GitHub',
-      url: 'https://github.com/anxndsgn/academic-homepage-template',
+      url: 'https://github.com/jokerwyt',
     },
-    { name: 'LinkedIn', url: 'https://linkedin.com' },
-    { name: 'ORCID', url: 'https://orcid' },
-    { name: 'Google Scholar', url: 'https://scholar.google.com' },
+    // { name: 'LinkedIn', url: 'https://linkedin.com' },
+    // { name: 'ORCID', url: 'https://orcid' },
+    // { name: 'Google Scholar', url: 'https://scholar.google.com' },
   ],
 };
 
 export const websiteInfo = {
   title: personalInfo.name,
-  description: 'HCI researcher',
+  description: 'Researcher homepage',
   // teaserImage: "/teaser.jpg",
 };
 
 export const navigations = [
-  { name: 'Projects', route: '/projects' },
-  { name: 'Publications', route: '/publications' },
-  // { name: "News", route: "/news" },
-  // { name: 'About', route: '/about' },
-  { name: 'CV', route: '/cv.pdf' },
+  // { name: 'Projects', route: '/projects' },
+  // { name: 'Publications', route: '/publications' },
+  // { name: 'Life', route: '/life' },
+  // { name: 'CV', route: '/cv.pdf' },
 ];
 
 export const homepageSection = {
   AboutSection: true,
   NewsSection: true,
-  // SelectedPublicationsSection: true,
+  ExperienceSection: true,
+  TeachingSection: true,
+  SelectedPublicationsSection: true,
   // ProjectSection: true,
 };
 
-export const fontStyle = 'sans'; // "sans" | "serif" | "mono"
+export const fontStyle = 'lato'; // "sans" | "serif" | "mono" | "lato"

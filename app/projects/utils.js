@@ -29,7 +29,7 @@ function readMDXFile(filePath) {
   return parseFrontmatter(rawContent);
 }
 
-function getMDXData(dir) {
+export function getMDXData(dir) {
   let mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file));

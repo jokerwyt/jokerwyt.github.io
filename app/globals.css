@@ -112,3 +112,10 @@ table {
 .title {
   text-wrap: balance;
 }
+
+
+a {
+  color: rgb(222, 147, 8);
+  text-decoration: none;
+  font-weight: 800;
+}

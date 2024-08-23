@@ -26,10 +26,12 @@ export default function Publications({ bibtex }) {
   return (
     <ol className="flex flex-col gap-4">
       {parsed.map((item) => {
-        const processedAuthors = authorProcess(
-          item.entryTags.author,
-          personalInfo.name
-        );
+        const processedAuthors = item.entryTags.author
+        const description = item.entryTags.description;
+        // authorProcess(
+        //   item.entryTags.author,
+        //   personalInfo.name
+        // );
         return (
           <li key={item.entryTags.title} className=" list-decimal">
             <h2 className="text-base font-medium dark:text-neutral-50">
@@ -49,7 +51,8 @@ export default function Publications({ bibtex }) {
                 {item.entryTags.journal?.replace(/{|}/g, '') ||
                   item.entryTags.booktitle?.replace(/{|}/g, '')}
               </span>
-              <span className="mr-2">{item.entryTags.year}</span>
+              <span className="mr-2 italic">{item.entryTags.conference}</span>
+              {<CustomMDX source={description} />}
               {item.entryTags.award &&
                 (item.entryTags.award === 'Honorable Mention' ? (
                   <Image
