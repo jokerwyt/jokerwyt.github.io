@@ -23,26 +23,18 @@ function authorProcess(authorsStr, personalInfo) {
 export default function Publications({ bibtex }) {
   const parsed = bibtexParse.toJSON(bibtex);
 
-  // Manually add DeepSeek-V3.2 as the first item
-  const deepseekItem = {
-    entryTags: {
-      title: 'DeepSeek-V3.2: Pushing the Frontier of Open Large Language Models',
-      url: 'https://arxiv.org/abs/2512.02556',
-      journal: 'arXiv preprint arXiv:2512.02556',
-      year: '2025',
-      date: '2025-12',
-      isDeepSeek: true // Flag to identify this special item
-    }
-  };
-
-  const allItems = [deepseekItem, ...parsed];
+  // Sort publications by year (newest first)
+  const sorted = parsed.sort((a, b) => {
+    const yearA = parseInt(a.entryTags.year) || 0;
+    const yearB = parseInt(b.entryTags.year) || 0;
+    return yearB - yearA; // Descending order (newest first)
+  });
 
   return (
     <ol className="flex flex-col gap-4">
-      {allItems.map((item) => {
+      {sorted.map((item) => {
         const processedAuthors = item.entryTags.author
         const description = item.entryTags.description;
-        const isDeepSeek = item.entryTags.isDeepSeek;
         // authorProcess(
         //   item.entryTags.author,
         //   personalInfo.name
@@ -54,22 +46,13 @@ export default function Publications({ bibtex }) {
             </h2>
 
             <div className=" font-light text-neutral-600 dark:text-neutral-300">
-              {!isDeepSeek && <CustomMDX source={processedAuthors} />}
+              <CustomMDX source={processedAuthors} />
 
               <span className=" mr-2 italic font-normal">
-                {isDeepSeek ? (
-                  <>
-                    <a href={item.entryTags.url} className="underline">
-                      [arxiv]
-                    </a>
-                    <span className="ml-2">{item.entryTags.date}</span>
-                  </>
-                ) : (
-                  item.entryTags.journal?.replace(/{|}/g, '') ||
-                  item.entryTags.booktitle?.replace(/{|}/g, '')
-                )}
+                {item.entryTags.journal?.replace(/{|}/g, '') ||
+                  item.entryTags.booktitle?.replace(/{|}/g, '')}
               </span>
-              {!isDeepSeek && <span className="mr-2 italic">{item.entryTags.conference}</span>}
+              <span className="mr-2 italic">{item.entryTags.conference}</span>
               {<CustomMDX source={description} />}
               {item.entryTags.award &&
                 (item.entryTags.award === 'Honorable Mention' ? (
