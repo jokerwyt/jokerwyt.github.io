@@ -7,7 +7,7 @@ export const personalInfo = {
   university: 'Peking University',
   universityWebsite: 'https://english.pku.edu.cn/',
   socialMedia: [
-    { name: 'Email', url: 'mailto:wuyongtong@stu.pku.edu.cn' },
+    { name: 'Email', url: 'mailto:ytwu@deepseek.com' },
     // { name: 'Twitter', url: 'https://twitter.com/anxndsgn' },
     {
       name: 'GitHub',
