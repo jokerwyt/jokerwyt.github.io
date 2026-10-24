@@ -1,5 +1,5 @@
 export const personalInfo = {
-  name: { en: 'Wynton Wu', zh: '吴永彤' },
+  name: { en: 'Winston Wu', zh: '吴永彤' },
   profilePicture: '/profile.jpg', //optional
   affiliations: [
     {
